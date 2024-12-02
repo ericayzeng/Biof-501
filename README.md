@@ -1,9 +1,19 @@
-# Biof-501
+# Biof-501 Exploring Patient Groupings in Social and Symptom Problem Index (SSPI) Rankings
 
-## Instructions
+## Contents of this Repository
 
-`Makefile`
+`Makefile` something something
 
-## H2
-### H3
-#### H4
+## Introduction
+### Background
+
+### Purpose
+
+### Rationale
+
+## Usage
+### Installation
+
+### Running the Pipeline
+
+### Troubleshooting
