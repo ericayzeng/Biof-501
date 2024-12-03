@@ -25,19 +25,24 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 
 ## Usage
 
+1. Make sure the `/input` folder contains `Fouladirad_FISH_SSPI.csv`.
+2. Ensure that the Docker daemon is active
+3. Run `make build-image clean run`
+4. On subsequent runs, run `make clean run`
+
 ## Input Data
 
 ## Output Data
 Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. The desired outputs for this project are as follows:
 - `Preprocessed_Fouladirad_FISH_SSPI.csv`: A CSV of cleaned and standardized SSPI data ready for analysis
-- `Pca_results.csv`: A CSSV of PCA-transformed data with principal components and participant IDs
-- `Kmeans_results.csv`: A csv mapping participant IDs to their K-means cluster assignments
+- `Pca_results.csv`: A CSV of PCA-transformed data with principal components and participant IDs
+- `Kmeans_results.csv`: A CSV mapping participant IDs to their K-means cluster assignments
 - `Kmeans_3d.png` : A 3D scatter plot showing K-means clusters in PCA-reduced space
 - `Kmeans_sspi_heatmap.png`: A heatmap showing the average SSPI scores for each cluster
 - `kmeans.png`: An intertia plot for determining the optimal number of clusters 
 
 ### PCA
-In the PCA step of the pipeline, Principal Component Analysis (PCA) is applied to the preprocessed SSPI dataset to reduce dimensionality and identify patterns in the data. Three principal components are generated, capturing the key variability in symptom rankings while preserving essential information. The output includes a CSV file containing the transformed data with components labeled `PC1`, `PC2`, and `PC3`, along with subject IDs for reference. These results are saved in the specified ‘output’ directory and serve as a foundation for further visualization or clustering analysis.
+In the PCA step of the pipeline, Principal Component Analysis (PCA) is applied to the preprocessed SSPI dataset to reduce dimensionality and identify patterns in the data. Three principal components are generated, capturing the key variability in symptom rankings while preserving essential information and enabling a graph to be outputted. The output includes a CSV file containing the transformed data with components labeled `PC1`, `PC2`, and `PC3`, along with subject IDs for reference. These results are saved in the specified ‘output’ directory and serve as a foundation for further visualization or clustering analysis.
 
 ### Clustering
 In the clustering step of the pipeline, K-means clustering is applied to the PCA-transformed SSPI dataset to group patients based on their symptom profiles. An optimal number of clusters is determined by analyzing the inertia across a range of cluster values, with the final clustering performed using 6 clusters. The output includes a CSV file mapping patient IDs to their respective cluster assignments. Additionally, the results are visualized through a 3D scatter plot of the clusters based on the principal components and a heatmap showing the centroids of each cluster across SSPI indices. These ‘outputs’ are saved in the results directory for further analysis and interpretation.
@@ -47,7 +52,7 @@ In the clustering step of the pipeline, K-means clustering is applied to the PCA
 ![kmeans](https://github.com/user-attachments/assets/178c7f73-c280-45c0-9ef5-d3e3944bc0e6)
 
 ## Container
-In the pipeline, a custom Docker ....
+In the pipeline, a custom Docker image is built on-demand using `make build-image` to run each step of the pipeline (each step uses the same image). The image uses the `python:3.10` image as a base, and additionally installs the packages specified in `requirements.txt`. The implementation for this image can be observed in the `Dockerfile`.
 
 ## References
 1. Rahman T, Lauriello J. Schizophrenia: An Overview. Focus (Am Psychiatr Publ). 2016;14(3):300-307. doi:10.1176/appi.focus.20160006
