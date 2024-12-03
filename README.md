@@ -21,6 +21,8 @@ In this pipeline, we are using SSPI from 70 participants with schizophrenia in o
 
 A pipeline is crucial for this analysis because it ensures the systematic, efficient, and reproducible processing of SSPI data.
 
+![Untitled presentation (2)](https://github.com/user-attachments/assets/ee7d05d1-4d7b-489d-b8eb-d9f4e2680331)
+
 ## Usage
 
 ## Input Data
@@ -39,6 +41,12 @@ In the PCA step of the pipeline, Principal Component Analysis (PCA) is applied t
 
 ### Clustering
 In the clustering step of the pipeline, K-means clustering is applied to the PCA-transformed SSPI dataset to group patients based on their symptom profiles. An optimal number of clusters is determined by analyzing the inertia across a range of cluster values, with the final clustering performed using 6 clusters. The output includes a CSV file mapping patient IDs to their respective cluster assignments. Additionally, the results are visualized through a 3D scatter plot of the clusters based on the principal components and a heatmap showing the centroids of each cluster across SSPI indices. These ‘outputs’ are saved in the results directory for further analysis and interpretation.
+
+![kmeans_3d](https://github.com/user-attachments/assets/54fdcd11-8f31-442c-aefa-79601ddf84d4)
+
+![kmeans_sspi_heatmap](https://github.com/user-attachments/assets/1b3f4287-23b8-4050-aaff-9a03eb87ce81)
+
+![kmeans](https://github.com/user-attachments/assets/178c7f73-c280-45c0-9ef5-d3e3944bc0e6)
 
 ## Container
 In the pipeline, a custom Docker ....
