@@ -1,17 +1,16 @@
 #!/usr/bin/env nextflow
 
-// inputs
-reads = Channel.fromPath("$projectDir/input/*.csv")
+/*
+This file contains the implementation of the workflow 
+for SSPI analysis
+*/
+
+// This channel reads data from the input directory
+params.reads = Channel.fromPath("$projectDir/input/*.csv")
+// This specifies an output directory
 params.outputDir = "output"
 
-log.info """\
-    S S P I _ A N A L Y S I S _ W O R K F L O W
-    ============================================
-    reads        : ${reads}
-    outdir       : ${params.outputDir}
-    """
-    .stripIndent()
-
+// This process preprocesses the input data
 process PREPROCESS {
     publishDir params.outputDir, mode:'copy'
 
@@ -27,6 +26,7 @@ process PREPROCESS {
     """
 }
 
+// This process performs PCA on the preprocessed data
 process PCA {
     publishDir params.outputDir, mode:'copy'
 
@@ -42,6 +42,7 @@ process PCA {
     """
 }
 
+// This process performs K-means clustering on the PCA results
 process KMEANS {
     publishDir params.outputDir, mode:'copy'
 
@@ -61,8 +62,23 @@ process KMEANS {
     """
 }
 
-workflow {  
-    preprocess_ch = PREPROCESS(reads)
+workflow {
+    log.info """
+    ======================================
+                ┏┓┏┓┏┓┳        
+                ┗┓┗┓┃┃┃        
+                ┗┛┗┛┣┛┻        
+                ┏┓┳┓┏┓┓ ┓┏┏┓┳┏┓
+                ┣┫┃┃┣┫┃ ┗┫┗┓┃┗┓
+                ┛┗┛┗┛┗┗┛┗┛┗┛┻┗┛
+    ======================================
+    """
+    .stripIndent()
+
+    // Step 1: preprocess data
+    preprocess_ch = PREPROCESS(params.reads)
+    // Step 2: PCA analysis
     pca_ch = PCA(preprocess_ch)
-    kmeans_ch = KMEANS(pca_ch, preprocess_ch)
+    // Step 3: K-means clustering
+    KMEANS(pca_ch, preprocess_ch)
 }

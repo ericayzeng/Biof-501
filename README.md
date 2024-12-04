@@ -4,13 +4,12 @@
 ### Directories
 - `bin`: Contains all the python scripts that are used in the pipeline
 - `input`: Contains the input data for the pipeline
-- `images`: Contains the images that are used in the README
 
 ### Files
-- `dockerfile`: 
-- `makefile`: 
-- `workflow.nf`: The primary pipeline file that provides the instructions for executing the pipeline using Nextflow
-- `nextflow.config`: Configuration file for Nextflow.
+- `Dockerfile`: Contains specifications for a Docker image with some required python packages installed 
+- `Makefile`: Contains `make` commands for building the docker image and running the workflow
+- `workflow.nf`: The primary pipeline implementation
+- `nextflow.config`: Configuration file for Nextflow
 
 ## Background
 Schizophrenia is a psychiatric disorder characterized by positive symptoms, negative symptoms, and cognitive impairments. [1] Positive symptoms consist of delusions, hallucinations, and disorganized speech and behavior. [1] Negative symptoms may consist of non-verbal expression, low expression, etc. [2] To measure these symptoms, typically a Signs and Symptoms of Psychotic Illness (SSPI) rating scale is used. The SSPI is a 20-item rating scale design to measure the severity of the major symptoms in psychotic disorders. [3] The scores range from 0 (absent) to 4 (severe). The first 19 items measure the major signs and symptoms while item 20 assesses insight. [4]
@@ -25,20 +24,29 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 
 ## Usage
 
-1. Make sure the `/input` folder contains `Fouladirad_FISH_SSPI.csv`.
-2. Ensure that the Docker daemon is active
-3. Run `make build-image clean run`
-4. On subsequent runs, run `make clean run`
+### Prerequisites
+
+- Docker - [Install Here](https://docs.docker.com/desktop/)
+- Python>=3.10 - [Install Here](https://www.python.org/downloads/)
+- Nextflow - [Install Here](https://www.nextflow.io/docs/latest/install.html)
+
+### Running the Workflow
+
+1. Clone the project: `git clone https://github.com/ericayzeng/Biof-501.git`
+2. Make sure the `/input` folder contains `Fouladirad_FISH_SSPI.csv`.
+3. Ensure that the Docker daemon is running
+4. Run `make build-image clean run`
+5. On subsequent runs, run `make clean run`
 
 ## Input Data
 
 ## Output Data
 Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. The desired outputs for this project are as follows:
-- `Preprocessed_Fouladirad_FISH_SSPI.csv`: A CSV of cleaned and standardized SSPI data ready for analysis
-- `Pca_results.csv`: A CSV of PCA-transformed data with principal components and participant IDs
-- `Kmeans_results.csv`: A CSV mapping participant IDs to their K-means cluster assignments
-- `Kmeans_3d.png` : A 3D scatter plot showing K-means clusters in PCA-reduced space
-- `Kmeans_sspi_heatmap.png`: A heatmap showing the average SSPI scores for each cluster
+- `preprocessed_Fouladirad_FISH_SSPI.csv`: A CSV of cleaned and standardized SSPI data ready for analysis
+- `pca_results.csv`: A CSV of PCA-transformed data with principal components and participant IDs
+- `kmeans_results.csv`: A CSV mapping participant IDs to their K-means cluster assignments
+- `kmeans_3d.png` : A 3D scatter plot showing K-means clusters in PCA-reduced space
+- `kmeans_sspi_heatmap.png`: A heatmap showing the average SSPI scores for each cluster
 - `kmeans.png`: An intertia plot for determining the optimal number of clusters 
 
 ### PCA
