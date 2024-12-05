@@ -13,13 +13,14 @@
 
 ## Background
 Schizophrenia is a psychiatric disorder characterized by positive symptoms, negative symptoms, and cognitive impairments. [1] Positive symptoms consist of delusions, hallucinations, and disorganized speech and behavior. [1] Negative symptoms may consist of non-verbal expression, low expression, etc. [2] To measure these symptoms, typically a Signs and Symptoms of Psychotic Illness (SSPI) rating scale is used. The SSPI is a 20-item rating scale design to measure the severity of the major symptoms in psychotic disorders. [3] The scores range from 0 (absent) to 4 (severe). The first 19 items measure the major signs and symptoms while item 20 assesses insight. [4]
+
 <img width="991" alt="Screenshot 2024-12-04 at 11 46 10 PM" src="https://github.com/user-attachments/assets/25479c7f-21d5-4bb8-ba96-043ab637e8fd">
 
 The purpose of clustering SSPI data is to uncover meaningful patterns and subgroups in individuals with schizophrenia. Firstly, it provides valuable insights into symptom heterogeneity. By grouping patients with similar symptom profiles, clustering has the potential to uncover distinct phenotypes, such as those with severe delusions or cognitive impairments. Secondly, these clusters have the potential to inform more personalized treatment strategies by identifying targeted interventions that are tailored to specific symptoms. For example Cognitive Behavioral Therapy (CBT) can be recommended to patients who suffer more from delusions and Cognitive Remediation Therapy (CRT) can be recommended to those who have more cognitive impairments. Finally, clustering helps researchers better understand and categorize patients, making it easier to explore how their symptoms relate to specific research findings. This deeper understanding of schizophrenia can lead to more effective studies and treatments.
 
-In this pipeline, we are using SSPI from 70 participants with schizophrenia in order to gain insights into symptom patterns, and identify distinct subgroups. This dataset is from a published 2022 study. Patients with psychosis were recruited through Vancouver Coastal Health mental health teams, psychiatric hospitals, and community health agencies. The sample consisted of 70 participants in the schizophrenia group. 
+In this pipeline, we are using SSPI from 70 participants with schizophrenia in order to gain insights into symptom patterns, and identify distinct subgroups. This dataset is from a published 2022 study [3]. Patients with psychosis were recruited through Vancouver Coastal Health mental health teams, psychiatric hospitals, and community health agencies [3].
 
-A pipeline is crucial for this analysis because it ensures the systematic, efficient, and reproducible processing of SSPI data. First we will need to load the data. As the data may require preprocessing, we have a dedicated step for this task. Next a principal component analysis is performed. Finally the pipeline clusters the patients based on their SSPI rankings.
+A pipeline is crucial for this analysis because it ensures the systematic, efficient, and reproducible processing of SSPI data. The purpose of this pipeline is really to provide a tool for data analysis and visualization of SSPI rankings that are typically collected in schizophrenia-based studies . First we will need to load the data. As the data may require preprocessing, we have a dedicated step for this task. Next a principal component analysis is performed. Finally the pipeline clusters the patients based on their SSPI rankings.
 
 ![Untitled presentation (2)](https://github.com/user-attachments/assets/ee7d05d1-4d7b-489d-b8eb-d9f4e2680331)
 
@@ -40,6 +41,7 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 5. On subsequent runs, run `make clean run`
 
 ## Input Data
+This analysis uses SSPI ranking data from 70 participants with schizophrenia obtained from a [2022 pulished study](https://pubmed.ncbi.nlm.nih.gov/35405574/). The data is in a csv file and is automatically downloaded during the `git clone` process and saved in the `input` folder. 
 
 ## Output Data
 Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. The desired outputs for this project are as follows:
