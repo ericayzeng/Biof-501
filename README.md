@@ -22,6 +22,7 @@ In this pipeline, we are using SSPI from 70 participants with schizophrenia in o
 
 A pipeline is crucial for this analysis because it ensures the systematic, efficient, and reproducible processing of SSPI data. The purpose of this pipeline is really to provide a tool for data analysis and visualization of SSPI rankings that are typically collected in schizophrenia-based studies . First we will need to load the data. As the data may require preprocessing, we have a dedicated step for this task. Next a principal component analysis is performed. Finally the pipeline clusters the patients based on their SSPI rankings.
 
+Here's a visualization of the pipeline:
 ![Untitled presentation (2)](https://github.com/user-attachments/assets/ee7d05d1-4d7b-489d-b8eb-d9f4e2680331)
 
 ## Usage
