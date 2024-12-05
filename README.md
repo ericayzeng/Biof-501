@@ -37,6 +37,7 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 1. Clone the project: 
    ```
    git clone https://github.com/ericayzeng/Biof-501.git
+   cd Biof-501
    ```
 2. Make sure the `/input` folder contains `Fouladirad_FISH_SSPI.csv`.
 3. Ensure that the Docker daemon is running
