@@ -14,7 +14,7 @@
 ## Background
 Schizophrenia is a psychiatric disorder characterized by positive symptoms, negative symptoms, and cognitive impairments. [1] Positive symptoms consist of delusions, hallucinations, and disorganized speech and behavior. [1] Negative symptoms may consist of non-verbal expression, low expression, etc. [2] To measure these symptoms, typically a Signs and Symptoms of Psychotic Illness (SSPI) rating scale is used. The SSPI is a 20-item rating scale design to measure the severity of the major symptoms in psychotic disorders. [3] The scores range from 0 (absent) to 4 (severe). The first 19 items measure the major signs and symptoms while item 20 assesses insight. [4]
 
-The purpose of clustering SSPI data is to uncover meaningful patterns and subgroups in individuals with schizophrenia. Firstly, it provides valuable insights into symptom heterogeneity. By grouping patients with similar symptom profiles, clustering has the potential to uncover distinct phenotypes, such as those with severe delusions or cognitive impairments. Secondly, these clusters have the potential to inform more personalized treatment strategies by identifying targeted interventions that are tailored to specific symptoms. For example cognitive behavioral therapy can be recommended to patients who suffer more from delusions and cognitive remediation therapy can be recommended to those who have more cognitive impairments. Finally, clustering helps researchers better understand and categorize patients, making it easier to explore how their symptoms relate to specific research findings. This deeper understanding of schizophrenia can lead to more effective studies and treatments.
+The purpose of clustering SSPI data is to uncover meaningful patterns and subgroups in individuals with schizophrenia. Firstly, it provides valuable insights into symptom heterogeneity. By grouping patients with similar symptom profiles, clustering has the potential to uncover distinct phenotypes, such as those with severe delusions or cognitive impairments. Secondly, these clusters have the potential to inform more personalized treatment strategies by identifying targeted interventions that are tailored to specific symptoms. For example Cognitive Behavioral Therapy (CBT) can be recommended to patients who suffer more from delusions and Cognitive Remediation Therapy (CRT) can be recommended to those who have more cognitive impairments. Finally, clustering helps researchers better understand and categorize patients, making it easier to explore how their symptoms relate to specific research findings. This deeper understanding of schizophrenia can lead to more effective studies and treatments.
 
 In this pipeline, we are using SSPI from 70 participants with schizophrenia in order to gain insights into symptom patterns, and identify distinct subgroups. This dataset is from a published 2022 study. Patients with psychosis were recruited through Vancouver Coastal Health mental health teams, psychiatric hospitals, and community health agencies. The sample consisted of 70 participants in the schizophrenia group. 
 
@@ -26,9 +26,9 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 
 ### Prerequisites
 
-- Docker - [Install Here](https://docs.docker.com/desktop/)
+- Docker>=27.3.1 - [Install Here](https://docs.docker.com/desktop/)
 - Python>=3.10 - [Install Here](https://www.python.org/downloads/)
-- Nextflow - [Install Here](https://www.nextflow.io/docs/latest/install.html)
+- Nextflow>=24.10.1 - [Install Here](https://www.nextflow.io/docs/latest/install.html)
 
 ### Running the Workflow
 
