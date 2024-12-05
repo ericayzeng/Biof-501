@@ -34,29 +34,44 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 
 ### Running the Workflow
 
-1. Clone the project: `git clone https://github.com/ericayzeng/Biof-501.git`
+1. Clone the project: 
+   ```
+   git clone https://github.com/ericayzeng/Biof-501.git
+   ```
 2. Make sure the `/input` folder contains `Fouladirad_FISH_SSPI.csv`.
 3. Ensure that the Docker daemon is running
-4. Run `make build-image clean run`
-5. On subsequent runs, run `make clean run`
+4. Run 
+   ```
+   make build-image clean run
+   ```
+7. On subsequent runs, run 
+   ```
+   make clean run
+   ```
 
 ## Input Data
 This analysis uses SSPI ranking data from 70 participants with schizophrenia obtained from a [2022 pulished study](https://pubmed.ncbi.nlm.nih.gov/35405574/). The data is in a csv file and is automatically downloaded during the `git clone` process and saved in the `input` folder. 
 
 ## Output Data
 Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. The desired outputs for this project are as follows:
-- `preprocessed_Fouladirad_FISH_SSPI.csv`: A CSV of cleaned and standardized SSPI data ready for analysis
-- `pca_results.csv`: A CSV of PCA-transformed data with principal components and participant IDs
-- `kmeans_results.csv`: A CSV mapping participant IDs to their K-means cluster assignments
-- `kmeans_3d.png` : A 3D scatter plot showing K-means clusters in PCA-reduced space
-- `kmeans_sspi_heatmap.png`: A heatmap showing the average SSPI scores for each cluster
-- `kmeans.png`: An intertia plot for determining the optimal number of clusters 
+- `preprocessed_Fouladirad_FISH_SSPI.csv`
+  - A CSV of cleaned and standardized SSPI data ready for analysis
+- `pca_results.csv`
+  - A CSV of PCA-transformed data with principal components and participant IDs
+- `kmeans_results.csv`
+  - A CSV mapping participant IDs to their K-means cluster assignments
+- `kmeans_3d.png` 
+  - A 3D scatter plot showing K-means clusters in PCA-reduced space
+- `kmeans_sspi_heatmap.png`
+  - A heatmap showing the average SSPI scores for each cluster
+- `kmeans.png`
+  - An intertia plot for determining the optimal number of clusters 
 
 ### PCA
 In the PCA step of the pipeline, Principal Component Analysis (PCA) is applied to the preprocessed SSPI dataset to reduce dimensionality and identify patterns in the data. Three principal components are generated, capturing the key variability in symptom rankings while preserving essential information and enabling a graph to be outputted. The output includes a CSV file containing the transformed data with components labeled `PC1`, `PC2`, and `PC3`, along with subject IDs for reference. These results are saved in the specified ‘output’ directory and serve as a foundation for further visualization or clustering analysis.
 
 ### Clustering
-In the clustering step of the pipeline, K-means clustering is applied to the PCA-transformed SSPI dataset to group patients based on their symptom profiles. An optimal number of clusters is determined by analyzing the inertia across a range of cluster values, with the final clustering performed using 6 clusters. The output includes a CSV file mapping patient IDs to their respective cluster assignments. Additionally, the results are visualized through a 3D scatter plot of the clusters based on the principal components and a heatmap showing the centroids of each cluster across SSPI indices. These ‘outputs’ are saved in the results directory for further analysis and interpretation.
+In the clustering step of the pipeline, K-means clustering is applied to the PCA-transformed SSPI dataset to group patients based on their symptom profiles. An optimal number of clusters is determined by analyzing the inertia across a range of cluster values, with the final clustering performed using 6 clusters. The output includes a CSV file mapping patient IDs to their respective cluster assignments. Additionally, the results are visualized through a 3D scatter plot of the clusters based on the principal components and a heatmap showing the centroids of each cluster across SSPI indices. These `outputs` are saved in the results directory for further analysis and interpretation.
 
 ![kmeans_3d](https://github.com/user-attachments/assets/54fdcd11-8f31-442c-aefa-79601ddf84d4)
 ![kmeans_sspi_heatmap](https://github.com/user-attachments/assets/1b3f4287-23b8-4050-aaff-9a03eb87ce81)
