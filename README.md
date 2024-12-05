@@ -53,13 +53,17 @@ A pipeline is crucial for this analysis because it ensures the systematic, effic
 This analysis uses SSPI ranking data from 70 participants with schizophrenia obtained from a [2022 pulished study](https://pubmed.ncbi.nlm.nih.gov/35405574/). The data is in a csv file and is automatically downloaded during the `git clone` process and saved in the `input` folder. 
 
 ## Output Data
-Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. The desired outputs for this project are as follows:
+Results will be published in the `output` directory. The `output` directory will contain the intermediate datasets, and final outputs. 
+
+The intermediate outputs for this project are as follows:
 - `preprocessed_Fouladirad_FISH_SSPI.csv`
   - A CSV of cleaned and standardized SSPI data ready for analysis
 - `pca_results.csv`
   - A CSV of PCA-transformed data with principal components and participant IDs
 - `kmeans_results.csv`
   - A CSV mapping participant IDs to their K-means cluster assignments
+
+The desired outputs for this project are as follows:
 - `kmeans_3d.png` 
   - A 3D scatter plot showing K-means clusters in PCA-reduced space
 - `kmeans_sspi_heatmap.png`
